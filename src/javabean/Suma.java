@@ -1,5 +1,7 @@
 package javabean;
 
+import java.util.Scanner;
+
 /**
  * Clase Suma
  *
@@ -64,5 +66,70 @@ public class Suma {
      */
     public double getAcumulado() {
         return acumulado;
+    }
+
+    /**
+     * Método que muestra un menú interactivo para realizar sumas.
+     */
+    public static void menu() {
+        Scanner sc = new Scanner(System.in);
+        Suma calculadora = new Suma(); // Crear un objeto de la clase Suma
+
+        int opcion;
+        do {
+            System.out.println("\nElige una opción del menú:");
+            System.out.println("1. Sumar dos números");
+            System.out.println("2. Sumar tres números");
+            System.out.println("3. Sumar al acumulado");
+            System.out.println("4. Mostrar acumulado");
+            System.out.println("5. Salir");
+            System.out.print("Opción: ");
+
+            // Leer la opción elegida
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Introduce el primer número real: ");
+                    double num1 = sc.nextDouble();
+                    System.out.print("Introduce el segundo número real: ");
+                    double num2 = sc.nextDouble();
+                    double resultado = calculadora.sumar(num1, num2);
+                    System.out.println("Resultado: " + resultado);
+                    break;
+
+                case 2:
+                    System.out.print("Introduce el primer número entero: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Introduce el segundo número entero: ");
+                    num2 = sc.nextDouble();
+                    System.out.print("Introduce el tercer número: ");
+                    double num3 = sc.nextDouble();
+                    resultado = calculadora.sumar(num1, num2, num3);
+                    System.out.println("Resultado: " + resultado);
+                    break;
+
+                case 3:
+                    System.out.print("Introduce el número a sumar al acumulado: ");
+                    double numAcumulado = sc.nextDouble();
+                    double nuevoAcumulado = calculadora.sumarAcumulado(numAcumulado);
+                    System.out.println("Nuevo acumulado: " + nuevoAcumulado);
+                    break;
+
+                case 4:
+                    System.out.println("Valor acumulado actual: " + calculadora.getAcumulado());
+                    break;
+
+                case 5:
+                    System.out.println("Saliendo del programa...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida. Inténtalo de nuevo.");
+            }
+
+        } while (opcion != 5);
+
+        sc.close();
     }
 }
