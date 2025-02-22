@@ -70,7 +70,7 @@ public class Resta {
         this.acumulado = 0;
     }
 
-    public static void main(String[] args) {
+    public static void menu() {
         // Crear un objeto Scanner para leer entradas del usuario
         Scanner scanner = new Scanner(System.in);
 
