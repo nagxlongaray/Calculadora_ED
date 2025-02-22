@@ -7,4 +7,5 @@ public class ClienteMain {
 
         Suma.menu();  // Llamamos al metodo estático menu() de la clase Suma
     }
+
 }
